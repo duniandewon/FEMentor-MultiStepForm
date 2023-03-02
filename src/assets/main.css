@@ -1,0 +1,97 @@
+/* Fonts */
+@font-face {
+  font-family: 'Ubuntu Regular';
+  src: url('fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu Medium';
+  src: url('fonts/Ubuntu-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu Bold';
+  src: url('fonts/Ubuntu-Bold.ttf') format('truetype');
+}
+
+/* Custom Propeties */
+
+:root {
+  --clr--primary-200: hsl(206, 94%, 87%);
+  --clr--primary-300: hsl(228, 100%, 84%);
+  --clr--primary-400: hsl(243, 100%, 62%);
+  --clr--primary-500: hsl(354, 84%, 57%);
+  --clr--primary-700: hsl(213, 96%, 18%);
+
+  --clr-neutral--100: hsl(0, 0%, 100%);
+  --clr-neutral--200: hsl(231, 100%, 99%);
+  --clr-neutral--300: hsl(217, 100%, 97%);
+  --clr-neutral--400: hsl(229, 24%, 87%);
+  --clr-neutral--500: hsl(231, 11%, 63%);
+
+  --fw-regular: 400;
+  --fw-bold: 500;
+  --fw-extra-bold: 700;
+}
+
+/* CSS Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#app {
+  isolation: isolate;
+}
+
+/* Global Styles */
+
+body {
+  background-color: var(--clr--primary-200);
+  font-family: 'Ubuntu Regular', sans-serif;
+  font-size: 1em;
+  color: var(--clr-neutral--500);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+}
