@@ -17,21 +17,17 @@
 /* Custom Propeties */
 
 :root {
-  --clr--primary-200: hsl(206, 94%, 87%);
-  --clr--primary-300: hsl(228, 100%, 84%);
-  --clr--primary-400: hsl(243, 100%, 62%);
-  --clr--primary-500: hsl(354, 84%, 57%);
-  --clr--primary-700: hsl(213, 96%, 18%);
+  --clr-primary-200: hsl(206, 94%, 87%);
+  --clr-primary-300: hsl(228, 100%, 84%);
+  --clr-primary-400: hsl(243, 100%, 62%);
+  --clr-primary-500: hsl(354, 84%, 57%);
+  --clr-primary-700: hsl(213, 96%, 18%);
 
-  --clr-neutral--100: hsl(0, 0%, 100%);
-  --clr-neutral--200: hsl(231, 100%, 99%);
-  --clr-neutral--300: hsl(217, 100%, 97%);
-  --clr-neutral--400: hsl(229, 24%, 87%);
-  --clr-neutral--500: hsl(231, 11%, 63%);
-
-  --fw-regular: 400;
-  --fw-bold: 500;
-  --fw-extra-bold: 700;
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(231, 100%, 99%);
+  --clr-neutral-300: hsl(217, 100%, 97%);
+  --clr-neutral-400: hsl(229, 24%, 87%);
+  --clr-neutral-500: hsl(231, 11%, 63%);
 }
 
 /* CSS Reset */
@@ -61,7 +57,7 @@ video,
 canvas,
 svg {
   display: block;
-  max-width: 100%;
+  width: 100%;
 }
 
 input,
@@ -88,10 +84,14 @@ h6 {
 /* Global Styles */
 
 body {
-  background-color: var(--clr--primary-200);
+  background-color: var(--clr-primary-200);
   font-family: 'Ubuntu Regular', sans-serif;
   font-size: 1em;
-  color: var(--clr-neutral--500);
+  color: var(--clr-neutral-500);
   font-weight: var(--fw-regular);
   line-height: 1.5;
+}
+
+body {
+  position: relative;
 }
