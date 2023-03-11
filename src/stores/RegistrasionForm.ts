@@ -7,7 +7,7 @@ interface State {
   phoneNumber: string
   plan: string
   addOns: string[]
-  isMonthly: boolean
+  isYearly: boolean
   step: number
   error?: {
     nameError?: string
@@ -23,9 +23,9 @@ export const useStore = defineStore('regis-form', () => {
     name: '',
     email: '',
     phoneNumber: '',
-    plan: '',
+    plan: 'arcade',
     addOns: [],
-    isMonthly: true,
+    isYearly: false,
     step: 1
   })
 
