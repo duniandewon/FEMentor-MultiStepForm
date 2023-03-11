@@ -9,9 +9,16 @@ interface State {
   addOns: string[]
   isMonthly: boolean
   step: number
+  error?: {
+    nameError?: string
+    emailError?: string
+    phoneError?: string
+  }
 }
 
-export const useAlertsStore = defineStore('regis-form', () => {
+type Action = 'next' | 'prev'
+
+export const useStore = defineStore('regis-form', () => {
   const state: State = reactive({
     name: '',
     email: '',
@@ -22,5 +29,13 @@ export const useAlertsStore = defineStore('regis-form', () => {
     step: 1
   })
 
-  return { state }
+  const handleSteps = (action: Action) => {
+    const { step } = state
+    if (action === 'next' && step < 4) return state.step++
+    if (action === 'prev' && step > 1) return state.step--
+  }
+
+  const jumpToStep = (step: number) => (state.step = step)
+
+  return { state, handleSteps, jumpToStep }
 })

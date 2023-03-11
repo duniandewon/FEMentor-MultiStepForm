@@ -36,10 +36,6 @@
   font-family: 'Ubuntu Medium';
 }
 
-.form .textfield {
-  margin-top: 1rem;
-}
-
 .form__footer {
   display: flex;
   padding: 1.2rem;
