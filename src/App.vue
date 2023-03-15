@@ -3,6 +3,7 @@ import StepCompponent from './components/StepComponent.vue'
 
 import PersonalInfoForm from './components/forms/PersonalInfo.vue'
 import SelectPlanForm from './components/forms/SelectPlan.vue'
+import PickAddonsForm from './components/forms/PickAddon.vue'
 
 import { useStore } from './stores/RegistrasionForm'
 import { storeToRefs } from 'pinia'
@@ -30,6 +31,7 @@ const steps = [1, 2, 3, 4]
   </aside>
   <PersonalInfoForm v-if="state.step === 1" />
   <SelectPlanForm v-if="state.step === 2" />
+  <PickAddonsForm v-if="state.step === 3" />
 </template>
 
 <style>
