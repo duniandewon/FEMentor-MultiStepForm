@@ -1,33 +1,31 @@
 <template>
-  <template>
-    <Form @onSubmit="handleSumbit">
-      <template #formHeader>
-        <h1 class="form__title">Pick add-ons</h1>
-        <p class="form__description">Add-ons helo enhance your gaming experience.</p>
-      </template>
+  <Form @onSubmit="handleSumbit">
+    <template #formHeader>
+      <h1 class="form__title">Pick add-ons</h1>
+      <p class="form__description">Add-ons helo enhance your gaming experience.</p>
+    </template>
 
-      <div class="addons">
-        <label class="addon" v-for="addon in addons" :key="addon.addon">
-          <input type="checkbox" name="addon" :value="addon" v-model="state.addOns" />
-          <span class="addon__checkbox"></span>
-          <div class="addon__main">
-            <p class="addon__title">
-              {{ addon.addon }}
-            </p>
-            <p class="addon__description">
-              {{ addon.desc }}
-            </p>
-          </div>
-          <p class="addon__price">+${{ state.isYearly ? addon.price * 10 : addon.price }}/mo</p>
-        </label>
-      </div>
+    <div class="addons">
+      <label class="addon" v-for="addon in addons" :key="addon.addon">
+        <input type="checkbox" name="addon" :value="addon" v-model="state.addOns" />
+        <span class="addon__checkbox"></span>
+        <div class="addon__main">
+          <p class="addon__title">
+            {{ addon.addon }}
+          </p>
+          <p class="addon__description">
+            {{ addon.desc }}
+          </p>
+        </div>
+        <p class="addon__price">+${{ state.isYearly ? `${addon.price * 10}/yr` : `${addon.price}/mo` }}</p>
+      </label>
+    </div>
 
-      <template #formFooter>
-        <Button type="button" class="link" @click="handleGoBack">go back</Button>
-        <Button type="submit">Next Step</Button>
-      </template>
-    </Form>
-  </template>
+    <template #formFooter>
+      <Button type="button" class="link" @click="handleGoBack">go back</Button>
+      <Button type="submit">Next Step</Button>
+    </template>
+  </Form>
 </template>
 
 <script setup lang="ts">
