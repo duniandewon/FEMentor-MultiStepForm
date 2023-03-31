@@ -1,5 +1,5 @@
 <template>
-  <Form>
+  <Form @onSubmit="handleSumbit">
     <template #formHeader>
       <h1 class="form__title">Personal Info</h1>
       <p class="form__description">Please provide your name, email address, and phone number.</p>
@@ -11,21 +11,21 @@
         v-model="state.name"
         label="name"
         placeholder="e.g Stephan King"
-        :error="state.error?.nameError"
+        :error="errorState.nameError"
       />
       <Input
         id="email"
         v-model="state.email"
         label="email address"
         placeholder="e.g stephanking@lorem.com"
-        :error="state.error?.emailError"
+        :error="errorState.emailError"
       />
       <Input
         id="phone-number"
         v-model="state.phoneNumber"
         label="Phone Number"
         placeholder="e.g +1 234 567 890"
-        :error="state.error?.phoneError"
+        :error="errorState.phoneError"
       />
     </section>
 
@@ -37,35 +37,36 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { storeToRefs } from 'pinia'
+
+import { useStore } from '../../stores/plan'
 
 import Form from '../FormComponent.vue'
 import Input from '../InputComponent.vue'
 import Button from '../ButtonComponent.vue'
 
-interface State {
-  name: string
-  email: string
-  phoneNumber: string
-  plan: string
-  addOns: string[]
-  isYearly: boolean
-  step: number
-  error?: {
-    nameError?: string
-    emailError?: string
-    phoneError?: string
-  }
+interface ErrorState {
+  nameError: string
+  emailError: string
+  phoneError: string
 }
 
-const state: State = reactive({
-  name: '',
-  email: '',
-  phoneNumber: '',
-  plan: 'arcade',
-  addOns: [],
-  isYearly: false,
-  step: 1
+const store = useStore()
+
+const { state } = storeToRefs(store)
+
+const { handleSteps } = store
+
+const errorState: ErrorState = reactive({
+  nameError: '',
+  emailError: '',
+  phoneError: ''
 })
+
+function handleSumbit() {  
+  /** TODO: Add validation before submit */
+  handleSteps('next')
+}
 </script>
 
 <style scoped>

@@ -1,8 +1,8 @@
 <template>
   <aside class="aside">
     <div class="steps">
-      <div class="step" v-for="(step, i) in state" :key="step.id">
-        <div class="step__number" :class="{ active: i === currentStep }">{{ i + 1 }}</div>
+      <div class="step" v-for="(step, i) in steps" :key="step.id">
+        <div class="step__number" :class="{ active: i === state.step }">{{ i + 1 }}</div>
         <div class="step__label">
           <p>step {{ i + 1 }}</p>
           <p>{{ step.label }}</p>
@@ -13,9 +13,16 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
+import { storeToRefs } from 'pinia'
 
-const state = reactive([
+import { useStore } from '../stores/plan'
+
+const store = useStore()
+
+const { state } = storeToRefs(store)
+
+const steps = reactive([
   {
     id: 'info',
     label: 'your info'
@@ -33,8 +40,6 @@ const state = reactive([
     label: 'summary'
   }
 ])
-
-const currentStep = ref(0)
 </script>
 
 <style scoped>
