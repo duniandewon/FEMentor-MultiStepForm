@@ -6,7 +6,8 @@ interface State {
   email: string
   phoneNumber: string
   plan: string
-  addOns: string[]
+  price: number
+  addOns: { addon: string; desc: string; price: number }[]
   isYearly: boolean
   step: number
 }
@@ -19,18 +20,18 @@ export const useStore = defineStore('regis-form', () => {
     email: '',
     phoneNumber: '',
     plan: 'arcade',
+    price: 0,
     addOns: [],
     isYearly: false,
     step: 0
   })
 
-  const handleSteps = (action: Action) => {
-    const { step } = state
-    if (action === 'next' && step < 3) return state.step++
-    if (action === 'prev' && step > 0) return state.step--
+  const handleSteps = (action: Action, step = 1) => {
+    if (action === 'next') return state.step++
+    if (action === 'prev') return state.step--
+
+    return (state.step = step)
   }
 
-  const jumpToStep = (step: number) => (state.step = step)
-
-  return { state, handleSteps, jumpToStep }
+  return { state, handleSteps }
 })
