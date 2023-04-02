@@ -35,8 +35,8 @@ const image = ref(`/images/icon-${props.id}.svg`)
 
 const listener = computed(() => ({
   change: (event: InputEvent) => {
-    emit('change', event.target.value)
-    emit('update:modelValue', event.target.value)
+    emit('change', event.target.value, props.price)
+    emit('update:modelValue', event.target.value, props.price)
   }
 }))
 </script>

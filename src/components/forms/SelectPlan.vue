@@ -65,8 +65,9 @@ function handleGoBack() {
   handleSteps('prev')
 }
 
-function handleChangePlan(e: string) {
+function handleChangePlan(e: string, price: number) {
   state.value.plan = e
+  state.value.price = price
 }
 
 function handleChangeSwitch(e: boolean) {
