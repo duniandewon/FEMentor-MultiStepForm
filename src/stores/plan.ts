@@ -20,7 +20,7 @@ export const useStore = defineStore('regis-form', () => {
     email: '',
     phoneNumber: '',
     plan: 'arcade',
-    price: 0,
+    price: 9,
     addOns: [],
     isYearly: false,
     step: 0
