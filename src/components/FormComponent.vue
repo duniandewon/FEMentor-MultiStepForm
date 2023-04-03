@@ -6,11 +6,19 @@
       </section>
       <slot></slot>
     </section>
-    <footer class="form__footer">
+    <footer v-if="!noFooter" class="form__footer">
       <slot name="formFooter"></slot>
     </footer>
   </form>
 </template>
+
+<script setup lang="ts">
+interface Props {
+  noFooter?: boolean
+}
+
+defineProps<Props>()
+</script>
 
 <style>
 .form {
