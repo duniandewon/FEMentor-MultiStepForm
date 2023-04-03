@@ -6,7 +6,12 @@
     </template>
 
     <div class="addons">
-      <label class="addon" v-for="addon in addons" :key="addon.addon">
+      <label
+        class="addon"
+        v-for="addon in addons"
+        :key="addon.addon"
+        :class="{ active: state.addOns.find((add) => add.addon === addon.addon) }"
+      >
         <input type="checkbox" name="addon" :value="addon" v-model="state.addOns" />
         <span class="addon__checkbox"></span>
         <div class="addon__main">
@@ -17,7 +22,9 @@
             {{ addon.desc }}
           </p>
         </div>
-        <p class="addon__price">+${{ state.isYearly ? `${addon.price * 10}/yr` : `${addon.price}/mo` }}</p>
+        <p class="addon__price">
+          +${{ state.isYearly ? `${addon.price * 10}/yr` : `${addon.price}/mo` }}
+        </p>
       </label>
     </div>
 
@@ -75,7 +82,8 @@ function handleGoBack() {
 .addon + .addon {
   margin-top: 1rem;
 }
-.addon.active {
+.addon.active,
+.addon:hover {
   border-color: var(--clr-primary-400);
   background-color: var(--clr-neutral-200);
 }

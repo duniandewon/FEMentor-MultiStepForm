@@ -53,7 +53,8 @@ const listener = computed(() => ({
 .plan > input {
   display: none;
 }
-.plan.active {
+.plan.active,
+.plan:hover {
   border-color: var(--clr-primary-400);
   background-color: var(--clr-neutral-200);
 }
