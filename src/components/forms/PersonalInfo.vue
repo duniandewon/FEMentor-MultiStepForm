@@ -72,9 +72,22 @@ const errorState: ErrorState = reactive({
 const handleChange = (event: Event) => {
   const { name, value } = event.target as HTMLInputElement
 
-  state.value[name] = value
+  switch (name) {
+    case 'name':
+      state.value.name = value
+      errorState.name = ''
+      break
 
-  errorState[name] = ''
+    case 'email':
+      state.value.email = value
+      errorState.email = ''
+      break
+
+    case 'phoneNumber':
+      state.value.phoneNumber = value
+      errorState.phoneNumber = ''
+      break
+  }
 }
 
 function handleSumbit() {
