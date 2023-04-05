@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface Props {
   id: string
+  name: string
   modelValue: any
   label: string
   placeholder: string
@@ -20,9 +21,11 @@ defineEmits(['update:modelValue'])
       type="text"
       class="textfield__input"
       :id="id"
+      :name="name"
       :value="modelValue"
+      :class="{ error: !!error }"
       :placeholder="placeholder"
-      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      @input="$emit('onChange', $event)"
       :required="isRequired"
     />
   </div>
