@@ -46,7 +46,7 @@ const steps = reactive([
 .aside {
   width: 100%;
   min-height: 14.7rem;
-  background: url('images/bg-sidebar-mobile.svg') no-repeat;
+  background: url('/images/bg-sidebar-mobile.svg') no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -98,7 +98,7 @@ const steps = reactive([
   .aside {
     width: 275px;
     padding: 2rem;
-    background: url('images/bg-sidebar-desktop.svg') no-repeat;
+    background: url('/images/bg-sidebar-desktop.svg') no-repeat;
     border-radius: 10px;
   }
 
